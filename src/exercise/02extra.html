@@ -1,0 +1,27 @@
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
+
+  <script type="module">
+    const rootElement = document.getElementById('root')
+
+    // create an individual element for each element of the UI we want 
+    const helloElement = React.createElement('span', {}, 'Hello')
+    const worldElement = React.createElement('span', {}, 'World')
+
+    // this would work as well
+    // const worldElement = React.createElement('span', null, 'World')
+
+    // note: we'll get a warning because each child needs a key prop
+    const element = React.createElement('div', {
+      className: 'container', 
+      children: [helloElement, ' ', worldElement]
+    })
+    console.log(element)
+    
+    ReactDOM.render(element, rootElement)
+
+  </script>
+</body>
